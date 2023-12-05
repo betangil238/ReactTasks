@@ -14,6 +14,23 @@ function App() {
   const completados = taskValue.filter(c=>c.complete===true).length
   const total = taskValue.length
   const tareasFiltradas = taskValue.filter(t => t.text.toLowerCase().includes(searchValue.toLowerCase()))
+  const completeTask = (text) => {
+    const newTasks = [...taskValue];
+    const i =newTasks.findIndex(t=>t.text===text)
+    if(newTasks[i].complete===false){
+      newTasks[i].complete=true;
+    }else{
+      newTasks[i].complete=false;
+    }
+    setTaskValue(newTasks)
+  }
+
+  const deleteTask=(text)=>{
+    const newTasks = [...taskValue];
+    const i =newTasks.findIndex(t=>t.text===text)
+    newTasks.splice(i,1)
+    setTaskValue(newTasks)
+  }
   return (
     <React.Fragment>
       <div className='RightScreen'>
@@ -24,7 +41,9 @@ function App() {
         />
         <ToDoList>
           {tareasFiltradas.map(t =>(
-            <TodoItem text={t.text} key={t.text} complete={t.complete}/>
+            <TodoItem text={t.text} key={t.text} complete={t.complete}
+            onComplete = {()=>completeTask(t.text)}
+            onDelete = {()=> deleteTask(t.text)}/>
           ))}
         </ToDoList>
       </div>
