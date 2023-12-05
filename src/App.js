@@ -7,14 +7,20 @@ import { ToDoButton } from './ToDoButton';
 import "./styles.css"
 import './App.css';
 import React from 'react';
-
+const tareas= [{text:"Comer",complete:true},{text:"Barrer",complete:true},{text:"Bailar",complete:false},{text:"Cocinar",complete:false}]
 function App() {
-  const tareas= [{text:"Comer",complete:true},{text:"Barrer",complete:false},{text:"Bailar",complete:false},{text:"Cocinar",complete:false}]
+  const [searchValue,setsearchValue] = React.useState('');
+  const [taskValue,setTaskValue] = React.useState(tareas);
+  const completados = taskValue.filter(c=>c.complete===true).length
+  const total = taskValue.length
   return (
     <React.Fragment>
       <div className='RightScreen'>
-        <ToDoTitle completed={3} total={5}/>
-        <ToDoSearch/>
+        <ToDoTitle completed={completados} total={total}/>
+        <ToDoSearch
+        searchValue={searchValue}
+        setsearchValue={setsearchValue}
+        />
         <ToDoList>
           {tareas.map(t =>(
             <TodoItem text={t.text} key={t.text} complete={t.complete}/>
@@ -30,5 +36,4 @@ function App() {
     </React.Fragment>
   );
 }
-
 export default App;
