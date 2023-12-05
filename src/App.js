@@ -13,6 +13,7 @@ function App() {
   const [taskValue,setTaskValue] = React.useState(tareas);
   const completados = taskValue.filter(c=>c.complete===true).length
   const total = taskValue.length
+  const tareasFiltradas = taskValue.filter(t => t.text.toLowerCase().includes(searchValue.toLowerCase()))
   return (
     <React.Fragment>
       <div className='RightScreen'>
@@ -22,7 +23,7 @@ function App() {
         setsearchValue={setsearchValue}
         />
         <ToDoList>
-          {tareas.map(t =>(
+          {tareasFiltradas.map(t =>(
             <TodoItem text={t.text} key={t.text} complete={t.complete}/>
           ))}
         </ToDoList>
