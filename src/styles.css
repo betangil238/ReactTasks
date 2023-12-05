@@ -1,0 +1,109 @@
+.LeftScreen{
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+    border: 2px solid gray;
+    padding: 50px;
+    border-radius: 20px;
+    height: 500px;
+    width: 250px;
+}
+
+.InputTask{
+    height: 20px;
+    border-radius: 15px;
+    border: none;
+    margin-bottom: 10px;
+    padding: 5px;
+    box-shadow: 10px 5px 5px salmon;
+    /* background-color: rgb(166, 169, 172); */
+}
+
+.botonEnviar{
+    margin-top: 10px;
+    align-items: center;
+    height: 40px;
+    width: 200px;
+    text-align: center;
+    margin-left: 30px;
+    border-radius: 50px;
+    border: 0;
+}
+
+.RightScreen{
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+    border: 2px solid gray;
+    padding: 50px;
+    border-radius: 20px;
+    height: 500px;
+    width: 300px;
+}
+
+.inputSearch{
+    height: 20px;
+    border-radius: 15px;
+    border: none;
+    margin-bottom: 10px;
+    padding: 5px;
+    box-shadow: 10px 5px 5px rgb(114, 223, 250);
+}
+
+.inputSearch:focus{
+    outline-color: aqua;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    min-height: 320px;
+    overflow-y: scroll;
+    list-style: none;
+}
+
+.TodoItem{
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 10px grey;
+     border-radius: 20px;
+}
+
+.TodoItem-p--complete{
+    text-decoration: line-through;
+}
+
+.Icon{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(209, 209, 209);
+}
+
+.Icon-check{
+    position: absolute;
+    left: 12px;
+}
+
+.Icon-check--active{
+    color: green;
+    background-color:rgba(0, 0, 0, 0);
+    font-size: 20px;
+}
+
+.Icon-delete{
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    font-size: 16px;
+}
+
+.Icon-delete:hover{
+    color: red;
+}
