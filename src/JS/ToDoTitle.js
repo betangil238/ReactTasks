@@ -1,7 +1,11 @@
-function ToDoTitle({completed,total}){
-
+import { TodoContext } from "../TodoContext";
+import React from 'react';
+function ToDoTitle(){
+  const {
+    completados,total
+  }=React.useContext(TodoContext)
     return(
-      completed ===total ? 
+      completados ===total ? 
       <div>
         <h1>Welcome To Do List</h1>
         <h2>FELICITACIONES, completaste las tareas</h2>
@@ -9,7 +13,7 @@ function ToDoTitle({completed,total}){
         : 
       <div>
         <h1>Welcome To Do List</h1>
-        <h2>Tienes {completed} de {total} tareas completadas</h2>
+        <h2>Tienes {completados} de {total} tareas completadas</h2>
       </div>
     );
   }
