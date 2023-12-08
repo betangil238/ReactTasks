@@ -10,6 +10,16 @@ function TodoProvider({children}){
     const completados = taskValue.filter(c=>c.complete===true).length
     const total = taskValue.length
     const tareasFiltradas = taskValue.filter(t => t.text.toLowerCase().includes(searchValue.toLowerCase()))
+    
+    const addTodo= (text)=>{
+      const newTasks = [...taskValue];
+        newTasks.push({
+          text:text,
+          complete:false
+        });
+        setTaskValue(newTasks)
+      
+    }
     const completeTask = (text) => {
       const newTasks = [...taskValue];
       const i =newTasks.findIndex(t=>t.text===text)
@@ -31,7 +41,7 @@ function TodoProvider({children}){
         <TodoContext.Provider value={{
             completados,total,searchValue,
             setsearchValue,tareasFiltradas,
-            completeTask,deleteTask,loading,error
+            completeTask,deleteTask,loading,error,addTodo
         }}>
             {children}
         </TodoContext.Provider>
